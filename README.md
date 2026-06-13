@@ -1,73 +1,204 @@
-# React + TypeScript + Vite
+# 🌍 QuakeRescue AI – Earthquake Rescue Simulation System
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 🚨 Overview
 
-Currently, two official plugins are available:
+**QuakeRescue AI** is an intelligent disaster response simulation system that demonstrates how AI can assist in rescue operations after an earthquake. The system simulates a realistic 3D city where buildings collapse, civilians get trapped, and an AI-powered rescue robot navigates the environment to save lives using advanced pathfinding algorithms.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+This project combines:
+- Artificial Intelligence
+- Pathfinding Algorithms
+- 3D Visualization
+- Real-time Simulation UI
+- Disaster Management Concepts
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🧠 Core Concept
 
-## Expanding the ESLint configuration
+After an earthquake hits a city:
+- Buildings collapse and roads become blocked
+- Civilians are trapped under debris
+- A rescue robot is deployed
+- The AI system calculates the safest route
+- Survivors are detected and rescued step-by-step
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+The system uses backend algorithms (already implemented) to determine:
+- Safe paths
+- Unsafe zones
+- Optimal rescue routes
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## ⚙️ Tech Stack
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+### Frontend
+- React.js
+- TypeScript
+- Vite
+- Three.js
+- React Three Fiber
+- Framer Motion
+- GSAP
+- Tailwind CSS
+- ShadCN UI
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Backend
+- Node.js / Express (or your backend stack)
+- Pathfinding Algorithms:
+  - A* Algorithm
+  - Dijkstra Algorithm
+  - BFS / DFS
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+---
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 🏙️ Features
+
+### 🌐 3D City Simulation
+- Realistic urban environment
+- Roads, buildings, hospitals, bridges, parks
+- Dynamic camera movement
+
+### 🌪️ Earthquake Effects
+- Collapsed buildings
+- Blocked roads
+- Fire & smoke effects
+- Hazard zones
+
+### 🤖 AI Rescue Robot
+- Autonomous movement
+- Survivor detection system
+- Path-following behavior
+- Rescue animations
+
+### 👥 Survivors System
+- Civilians placed in random locations
+- States:
+  - Safe
+  - Injured
+  - Critical
+  - Trapped
+
+### 🧭 Pathfinding System
+- AI calculates safest route
+- Avoids danger zones
+- Updates in real time
+
+### 📊 Control Dashboard
+- Mission status
+- Survivor count
+- Robot battery level
+- Algorithm selection
+- Simulation controls
+
+---
+
+## 🎮 Camera Modes
+- Third-person robot view (PUBG style)
+- Drone view
+- Top-down tactical map
+- Cinematic free camera
+- First-person robot view
+
+---
+
+## 🧩 Project Structure
+
+QuakeRescueAI
+│
+├── backend
+│   ├── __pycache__/
+│   ├── venv/
+│   │
+│   ├── core/
+│   │   ├── a_star.py              # Pathfinding algorithm
+│   │   ├── dijkstra.py           # (optional backup routing)
+│   │   ├── risk_analyzer.py      # unsafe zone detection
+│   │   ├── rescue_engine.py      # AI decision system
+│   │
+│   ├── api/
+│   │   ├── app.py                # Flask/FastAPI entry
+│   │   ├── routes.py             # API endpoints
+│   │   ├── models.py             # request/response schemas
+│   │
+│   ├── simulation/
+│   │   ├── city_graph.py         # grid / graph representation
+│   │   ├── earthquake_model.py   # hazard simulation logic
+│   │   ├── survivor_generator.py # spawn trapped humans
+│   │
+│   ├── requirements.txt
+│   └── config.py
+│
+│
+├── frontend
+│   │
+│   ├── public
+│   │   ├── models/               # 3D models (robot, humans, buildings)
+│   │   ├── textures/             # materials
+│   │   ├── hdr/                  # lighting environment
+│   │   ├── sounds/               # earthquake + ambience
+│   │
+│   ├── src
+│   │   │
+│   │   ├── engine/
+│   │   │   ├── scene.tsx         # main 3D world
+│   │   │   ├── renderer.tsx      # WebGL setup
+│   │   │   ├── lighting.tsx      # HDR + shadows
+│   │   │
+│   │   ├── world/
+│   │   │   ├── city/
+│   │   │   │   ├── CityBuilder.tsx
+│   │   │   │   ├── Buildings.tsx
+│   │   │   │   ├── Roads.tsx
+│   │   │   │
+│   │   │   ├── earthquake/
+│   │   │   │   ├── ShakeSystem.tsx
+│   │   │   │   ├── CollapseSystem.tsx
+│   │   │   │
+│   │   │   ├── humans/
+│   │   │   │   ├── Civilian.tsx
+│   │   │   │   ├── Survivor.tsx
+│   │   │   │
+│   │   │   ├── robot/
+│   │   │   │   ├── RescueRobot.tsx
+│   │   │   │   ├── RobotAIController.tsx
+│   │   │
+│   │   ├── systems/
+│   │   │   ├── pathfinding/
+│   │   │   │   ├── apiBridge.ts   # connects backend A*
+│   │   │   │   ├── pathRenderer.ts
+│   │   │   │
+│   │   │   ├── rescue/
+│   │   │   │   ├── missionManager.ts
+│   │   │   │   ├── survivorTracker.ts
+│   │   │   │
+│   │   │   ├── hazards/
+│   │   │   │   ├── dangerZones.ts
+│   │   │   │
+│   │   ├── ui/
+│   │   │   ├── hud/
+│   │   │   │   ├── GameHUD.tsx     # PUBG-style overlay
+│   │   │   │   ├── StatusBar.tsx
+│   │   │   │   ├── MissionPanel.tsx
+│   │   │   │
+│   │   │   ├── overlays/
+│   │   │   │   ├── WarningOverlay.tsx
+│   │   │   │   ├── EarthquakeAlert.tsx
+│   │   │   │
+│   │   │   ├── worldUI/
+│   │   │   │   ├── SurvivorMarker.tsx
+│   │   │   │   ├── SafePathGlow.tsx
+│   │   │
+│   │   ├── store/
+│   │   │   ├── useGameStore.ts    # Zustand state
+│   │   │
+│   │   ├── utils/
+│   │   │   ├── math.ts
+│   │   │   ├── constants.ts
+│   │   │
+│   │   ├── App.tsx
+│   │   └── main.tsx
+│
+│
+├── README.md
+├── package.json
+└── vite.config.ts
