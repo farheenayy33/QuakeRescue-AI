@@ -20,7 +20,7 @@ FRONTEND_DIST = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'f
 # ── Earthquake parameters for magnitude 8.5 ──────────────────────────────
 MAGNITUDE = 8.5
 COLLAPSE_FULL_PROB = 0.70      # 70 % buildings fully collapse
-COLLAPSE_PARTIAL_PROB = 0.20   # 20 % partially damaged
+COLLAPSE_PARTIAL_PROB = 0.30   # 30 % partially damaged
 DEBRIS_PER_COLLAPSE = 6        # rubble piles per collapsed building
 GRID_SIZE = 40                 # pathfinding grid resolution
 NUM_BUILDINGS = 18             # city buildings
